@@ -1,5 +1,4 @@
 import { PlusCircleIcon } from "@heroicons/react/24/solid";
-import { todo } from "node:test";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 import TodoCard from "./TodoCard";
 import { useBoardStore } from "@/store/BoardStore";

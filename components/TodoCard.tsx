@@ -11,9 +11,9 @@ type Props = {
   todo: Todo;
   index: number;
   id: TypedColumn;
-  innerRef: (element: HTMLElement | null | undefined) => void;
+  innerRef: (element: HTMLElement | null) => void;
   draggableProps: DraggableProvidedDraggableProps;
-  dragHandleProps: DraggableProvidedDragHandleProps;
+  dragHandleProps: DraggableProvidedDragHandleProps | null | undefined;
 };
 
 function TodoCard({ todo, index, id, innerRef, draggableProps, dragHandleProps }: Props) {

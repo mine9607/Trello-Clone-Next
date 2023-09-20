@@ -10,7 +10,7 @@ interface Column {
 }
 
 interface Todo {
-  id: Key | null | undefined;
+  //id: Key | null | undefined;
   $id: string;
   $createdAt: string;
   title: string;
