@@ -9,9 +9,9 @@ import fetchSuggestion from "@/lib/fetchSuggestion";
 
 function Header() {
   const [board, searchString, setSearchString] = useBoardStore((state) => [
+    state.board,
     state.searchString,
     state.setSearchString,
-    state.board,
   ]);
 
   const [loading, setLoading] = useState<boolean>(false);
@@ -26,6 +26,8 @@ function Header() {
       setSuggestion(suggestion);
       setLoading(false);
     };
+
+    fetchSuggestionFunc();
   }, [board]);
 
   return (

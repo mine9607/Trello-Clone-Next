@@ -1,5 +1,6 @@
 import openai from "@/openai";
 import { NextResponse } from "next/server";
+import { Completions } from "openai/resources/completions.mjs";
 
 export async function POST(request: Request) {
   //todos in the body of the POST req
@@ -7,7 +8,7 @@ export async function POST(request: Request) {
   console.log(todos);
 
   // communicate with openAI GPT
-  const response = await openai.createChatCompletion({
+  const response = await openai.chat.completions.create({
     model: "gpt-3.5-turbo", //change to 'gpt-4 if you have access to it
     temperature: 0.8,
     n: 1,
@@ -25,10 +26,7 @@ export async function POST(request: Request) {
       },
     ],
   });
-  const { data } = response;
-
-  console.log("DATA IS: ", data);
-  console.log(data.choices[0].message);
-
-  return NextResponse.json(data.choices[0].message);
+  // const { data } = response;
+  console.log(response.choices[0].message);
+  return NextResponse.json(response.choices[0].message);
 }
