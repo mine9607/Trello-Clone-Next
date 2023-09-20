@@ -5,7 +5,6 @@ import { Completions } from "openai/resources/completions.mjs";
 export async function POST(request: Request) {
   //todos in the body of the POST req
   const { todos } = await request.json();
-  console.log(todos);
 
   // communicate with openAI GPT
   const response = await openai.chat.completions.create({
@@ -26,7 +25,6 @@ export async function POST(request: Request) {
       },
     ],
   });
-  // const { data } = response;
-  console.log(response.choices[0].message);
+
   return NextResponse.json(response.choices[0].message);
 }
